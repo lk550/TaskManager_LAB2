@@ -28,6 +28,7 @@
     <string name="low_priority">Low</string>
 
     <string name="add_button">Add</string>
+    <string name="newTask_header">Add Task</string>
 
     <string-array name="types_array">
         <item>To-do</item>
