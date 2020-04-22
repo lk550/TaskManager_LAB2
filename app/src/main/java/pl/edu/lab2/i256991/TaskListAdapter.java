@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-
+//This adapter is responsible for creating and binding viewholders, that have the task info for the recyclerview
 public class TaskListAdapter extends
         RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
 
