@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     //TODO: substituir data inicial (placeholder apenas words)
     private final LinkedList<String> mWordList = new LinkedList<>();
 
+    //variables adapter + recycleView
     private RecyclerView mRecyclerView;
     private TaskListAdapter mAdapter;
 
