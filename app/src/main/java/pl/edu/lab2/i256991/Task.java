@@ -1,6 +1,13 @@
 package pl.edu.lab2.i256991;
 
-public class Task {
+//import java.io.Serializable;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Task  implements Serializable {
     String title;
     String type;
     String description;
@@ -40,5 +47,31 @@ public class Task {
         this.status = status;
     }
 
+    /*
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(type);
+        dest.writeString(description);
+        dest.writeString(date);
+        dest.writeString(status);
+
+    }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Task> CREATOR = new Parcelable.Creator<Task>() {
+        public Task createFromParcel(Parcel in) {
+            return new Task(in);
+        }
+
+        public Task[] newArray(int size) {
+            return new Task[size];
+        }
+    }; */
     //public int getId() { return id; }
 }

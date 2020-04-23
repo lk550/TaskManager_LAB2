@@ -2,15 +2,19 @@ package pl.edu.lab2.i256991;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.Serializable;
 
 
 public class AddTask extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -19,7 +23,8 @@ public class AddTask extends AppCompatActivity implements AdapterView.OnItemSele
     //TODO: Meter variaveis novas
 
     public static final String EXTRA_TASK = "pl.edu.lab2.i256991.extra.TASK";
-    public static Task task;
+    public static final int RESULT_OK = 1;
+    public static Task mTask;
 
 
     @Override
@@ -62,17 +67,20 @@ public class AddTask extends AppCompatActivity implements AdapterView.OnItemSele
         }
 
 
-        CharSequence text = "Hello toast! info: "+title+"|"+type+"|"+desc+"|"+date+".";
+       /* CharSequence text = "Hello toast! info: "+title+"|"+type+"|"+desc+"|"+date+".";
         int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(this, text, duration);
-        toast.show();
+        toast.show(); */
 
-        task = new Task(title,type, desc, date);
+        Intent taskIntent = new Intent();
+        mTask = new Task(title,type, desc, date);
 
+        Log.d("test1",mTask.title);
+        Log.d("resok?", String.valueOf(RESULT_OK));
 
-
-        // Finish activity (this returns back to MainActivity)
+        taskIntent.putExtra(EXTRA_TASK, mTask);
+        setResult(RESULT_OK,taskIntent);
         finish();
     }
 

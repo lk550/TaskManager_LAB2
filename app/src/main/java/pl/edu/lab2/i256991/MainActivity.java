@@ -11,9 +11,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 
@@ -28,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private TaskListAdapter mAdapter;
 
+    private Task mIntentTask;
+    public static final int TASK_REQUEST = 1;
+    public static final int RESULT_OK = 1;
+    public static final String EXTRA_TASK = "pl.edu.lab2.i256991.extra.TASK";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 20; i++) {
             mWordList.addLast("Word " + i);
         }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -52,18 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //>> CRIACAO DE UMA VIEW :
-        // Get a handle to the RecyclerView.
-      /*  mRecyclerView = findViewById(R.id.recyclerview);
-        // Create an adapter and supply the data to be displayed.
-        mAdapter = new TaskListAdapter(this, mWordList);
-        // Connect the adapter with the RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-        // Give the RecyclerView a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this)); */
-        //-----------------------------------------------------------------------
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -78,14 +74,29 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_add) {
             Intent intent = new Intent(MainActivity.this, AddTask.class);
-            //intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
-            startActivity(intent);
+            startActivityForResult(intent, TASK_REQUEST);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("req", String.valueOf(requestCode));
+        Log.d("res", String.valueOf(resultCode));
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TASK_REQUEST) {
+            if (resultCode == RESULT_OK) {
+
+                Log.d("aaand","got in");
+                Task task = (Task) data.getSerializableExtra(EXTRA_TASK);
+                Log.d("please","got in 2");
+               Log.d("idk",task.title);
+
+            }
+        }
     }
 }
