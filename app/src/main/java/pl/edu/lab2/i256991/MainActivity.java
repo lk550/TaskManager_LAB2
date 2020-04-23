@@ -108,26 +108,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    /**
+     * callback when recycler view is swiped
+     * item will be removed on swiped
+     * undo option will be provided in snackbar to restore the item
+     */
 
-    private void setUpItemTouchHelper() {
-        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP) {
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
+        if (viewHolder instanceof TaskListAdapter.TaskViewHolder) {
+            // get the removed item name to display it in snack bar
+            String title = mTaskList.get(viewHolder.getAdapterPosition()).getTitle();
 
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                Toast.makeText(MainActivity.this, "on Move", Toast.LENGTH_SHORT).show();
-                return false;
-            }
+            // remove the item from recycler view
+            mAdapter.removeItem(viewHolder.getAdapterPosition());
 
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                Toast.makeText(MainActivity.this, "on Swiped ", Toast.LENGTH_SHORT).show();
-                //Remove swiped item from list and notify the RecyclerView
-                int position = viewHolder.getAdapterPosition();
-                mTaskList.remove(position);
-                mAdapter.notifyDataSetChanged();
-
-            }
-        };
-
+        }
     }
 }

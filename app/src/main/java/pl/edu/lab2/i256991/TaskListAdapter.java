@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.LinkedList;
@@ -48,11 +49,12 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
         private final String EMAIL = "Email";
         private final String PHONE = "Phone";
         private final String MEETING = "Meeting";
         private final String OTHER = "Other";
+
+        public LinearLayout backgroundLayer, foregroundLayer;
 
         final TaskListAdapter mAdapter;
         final TextView taskTitle;
@@ -62,11 +64,14 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
         public TaskViewHolder(View itemView, TaskListAdapter adapter) {
             super(itemView);
-           // taskViewItem = itemView.findViewById(R.id.task_item);
             taskTitle = itemView.findViewById(R.id.task_title);
             taskIcon = itemView.findViewById(R.id.task_icon);
             taskDate = itemView.findViewById(R.id.task_date);
             taskStatus = itemView.findViewById(R.id.task_status);
+
+            backgroundLayer = itemView.findViewById(R.id.item_Background);
+            foregroundLayer = itemView.findViewById(R.id.item_Foreground);
+
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
         }
@@ -135,4 +140,10 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     public int getItemCount() {
         return mTaskList == null? 0: mTaskList.size();
     }
+
+    public void removeItem(int position) {
+        mTaskList.remove(position);
+        notifyItemRemoved(position);
+    }
+
 }

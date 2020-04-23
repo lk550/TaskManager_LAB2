@@ -8,9 +8,10 @@
 
 
     <LinearLayout
-        android:id="@+id/task_item"
+        android:id="@+id/item_Foreground"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background">
     <ImageView
         android:id="@+id/task_icon"
         android:layout_width="42dp"
@@ -43,5 +44,36 @@
         android:layout_weight="1"
         android:text="Status"
         android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_Background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/emailRed">
+
+        <TextView
+            android:layout_width="347dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/delete_icon"
+            android:gravity="center|right"
+
+            android:text="Delete"
+            android:textColor="#fff"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:foregroundGravity="right"
+            android:src="@drawable/ic_delete" />
+
     </LinearLayout>
 </LinearLayout>
