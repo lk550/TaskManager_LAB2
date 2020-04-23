@@ -6,14 +6,14 @@ public class Task {
     String description;
     String date;
     String status;
-    int id;
+   // int id;
 
-    Task(String title, String type, String desc, String date, int id){
+    Task(String title, String type, String desc, String date){
         this.title=title;
         this.type=type;
         description=desc;
         this.date=date;
-        this.id=id;
+     //   this.id=id;
     }
 
     public String getTitle() {
@@ -40,5 +40,5 @@ public class Task {
         this.status = status;
     }
 
-    public int getId() { return id; }
+    //public int getId() { return id; }
 }

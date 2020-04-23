@@ -70,7 +70,7 @@
 
     <!-- EditText for getting task title -->
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/task_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="84dp"
