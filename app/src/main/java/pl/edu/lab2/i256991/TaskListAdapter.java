@@ -16,12 +16,15 @@ public class TaskListAdapter extends
 
     //TODO: substituir o data da lista de palavras com algo melhor
     private final LinkedList<String> mWordList;
+
+    private final LinkedList<Task> mTaskList;
     //responsible for inflating the xml with the content
     private final LayoutInflater mInflater;
 
     class TaskViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        public final TextView wordItemView;
+      //  public final TextView wordItemView;
+     //   public final TextView taskItemView;
         final TaskListAdapter mAdapter;
 
         /**
@@ -34,7 +37,8 @@ public class TaskListAdapter extends
          */
         public TaskViewHolder(View itemView, TaskListAdapter adapter) {
             super(itemView);
-            wordItemView = itemView.findViewById(R.id.word);
+        //    wordItemView = itemView.findViewById(R.id.word);
+           // taskItemView = itemView.findViewById(R.id.task);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
         }
@@ -55,9 +59,10 @@ public class TaskListAdapter extends
         }
     }
 
-    public TaskListAdapter(Context context, LinkedList<String> wordList) {
+    public TaskListAdapter(Context context, LinkedList<String> wordList, LinkedList<Task> taskList) {
         mInflater = LayoutInflater.from(context);
         this.mWordList = wordList;
+        this.mTaskList = taskList;
     }
 
     /**
@@ -104,7 +109,7 @@ public class TaskListAdapter extends
         // Retrieve the data for that position.
         String mCurrent = mWordList.get(position);
         // Add the data to the view holder.
-        holder.wordItemView.setText(mCurrent);
+       // holder.wordItemView.setText(mCurrent);
     }
 
     /**

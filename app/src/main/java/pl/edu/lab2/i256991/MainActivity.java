@@ -1,5 +1,6 @@
 package pl.edu.lab2.i256991;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,12 +22,16 @@ public class MainActivity extends AppCompatActivity {
     //TODO: substituir data inicial (placeholder apenas words)
     private final LinkedList<String> mWordList = new LinkedList<>();
 
+    private LinkedList<Task> mTaskList;
+
     //variables adapter + recycleView
     private RecyclerView mRecyclerView;
     private TaskListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mTaskList = new LinkedList<>();
 
         //TODO: Remover esta parte que enche o placeholder com lixo--------------
         for (int i = 0; i < 20; i++) {
@@ -49,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
         //>> CRIACAO DE UMA VIEW :
         // Get a handle to the RecyclerView.
-        mRecyclerView = findViewById(R.id.recyclerview);
+      /*  mRecyclerView = findViewById(R.id.recyclerview);
         // Create an adapter and supply the data to be displayed.
         mAdapter = new TaskListAdapter(this, mWordList);
         // Connect the adapter with the RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         // Give the RecyclerView a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this)); */
         //-----------------------------------------------------------------------
     }
 
@@ -74,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add) {
+            Intent intent = new Intent(MainActivity.this, AddTask.class);
+            //intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+            startActivity(intent);
             return true;
         }
 
