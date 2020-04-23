@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     //variables adapter + recycleView
     private RecyclerView mRecyclerView;
     private TaskListAdapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     private Task mIntentTask;
     public static final int TASK_REQUEST = 1;
@@ -47,17 +48,21 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new TaskListAdapter(this, mTaskList);
+        mRecyclerView.setAdapter(mAdapter);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //FloatingActionButton fab = findViewById(R.id.fab);
 
     }
     @Override
@@ -95,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 Task task = (Task) data.getSerializableExtra(EXTRA_TASK);
                 Log.d("please","got in 2");
                Log.d("idk",task.title);
+               mTaskList.add(task);
+
+               mAdapter.notifyItemInserted(mTaskList.size());
 
             }
         }

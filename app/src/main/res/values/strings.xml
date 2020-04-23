@@ -29,6 +29,12 @@
 
     <string name="add_button">Add</string>
     <string name="newTask_header">Add Task</string>
+    <string name="type_todo">To-do</string>
+    <string name="type_email">Email</string>
+    <string name="type_phone">Phone</string>
+    <string name="type_meeting">Meeting</string>
+    <string name="type_other">Other</string>
+    <string name="title">Title:</string>
 
     <string-array name="types_array">
         <item>To-do</item>

@@ -3,14 +3,16 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-
-    <!-- colors for general appearance -->
     <color name="colorPrimaryLight">#C5CAE9</color>
-
-    <!-- colors for task priority selection -->
-    <color name="materialRed">#E74C3C</color>
-    <color name="materialOrange">#E67E22</color>
-    <color name="materialYellow">#F1C40F</color>
     <color name="materialBlack">#000000</color>
+
+    <!-- colors for task types -->
+    <color name="todoOrange">#FF9800</color>
+    <color name="emailRed">#EC0000</color>
+    <color name="phoneGreen">#00DE17</color>
+    <color name="meetingPurple">#6B29E6</color>
+    <color name="otherGray">#646464</color>
+
+
 
 </resources>

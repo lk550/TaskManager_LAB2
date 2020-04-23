@@ -20,6 +20,7 @@ public class Task  implements Serializable {
         this.type=type;
         description=desc;
         this.date=date;
+        status="not done";
      //   this.id=id;
     }
 

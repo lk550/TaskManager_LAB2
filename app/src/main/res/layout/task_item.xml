@@ -7,6 +7,10 @@
     android:padding="6dp">
 
 
+    <LinearLayout
+        android:id="@+id/task_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:id="@+id/task_icon"
         android:layout_width="42dp"
@@ -39,4 +43,5 @@
         android:layout_weight="1"
         android:text="Status"
         android:textSize="10sp" />
+    </LinearLayout>
 </LinearLayout>
