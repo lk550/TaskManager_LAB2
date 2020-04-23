@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.LinkedList;
 
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 //This adapter is responsible for creating and binding viewholders, that have the task info for the recyclerview
@@ -22,7 +23,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     //responsible for inflating the xml with the content
     private final LayoutInflater mInflater;
 
+
     public TaskListAdapter(Context context, LinkedList<Task> taskList) {
+
         mInflater = LayoutInflater.from(context);
         this.mTaskList = taskList;
     }
@@ -42,7 +45,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
          holder.setDate(task.getDate());
          holder.setStatus(task.getStatus());
     }
-
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
