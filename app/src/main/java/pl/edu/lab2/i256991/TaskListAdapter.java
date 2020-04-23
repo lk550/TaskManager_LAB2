@@ -2,7 +2,6 @@ package pl.edu.lab2.i256991;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,13 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
-import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 //This adapter is responsible for creating and binding viewholders, that have the task info for the recyclerview
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
 
-    Resources res = Resources.getSystem();
+
     //has the data
     private final LinkedList<Task> mTaskList;
     //responsible for inflating the xml with the content
@@ -35,7 +34,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         return new TaskViewHolder(mItemView, this);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public void onBindViewHolder(TaskListAdapter.TaskViewHolder holder, int position) {
         // Retrieve the data for that position.
          Task task = mTaskList.get(position);
@@ -48,11 +46,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-       // private final String TODO = res.getString(R.string.type_todo);
-       /* private final String EMAIL = res.getString(R.string.type_email);
-        private final String PHONE = res.getString(R.string.type_phone);
-        private final String MEETING = res.getString(R.string.type_meeting);
-        private final String OTHER = res.getString(R.string.type_other); */
 
         private final String EMAIL = "Email";
         private final String PHONE = "Phone";
@@ -80,28 +73,29 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
             taskTitle.setText(title);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.M)
+
         public void setIcon(String type) {
+            Context context= itemView.getContext();
             switch(type){
                 case EMAIL:
                     taskIcon.setImageResource(R.drawable.ic_email);
-                    taskIcon.setColorFilter(res.getColor(R.color.emailRed,null));
+                    taskIcon.setColorFilter(ContextCompat.getColor(context,R.color.emailRed));
                     break;
                 case PHONE:
                     taskIcon.setImageResource(R.drawable.ic_telephone);
-                    taskIcon.setColorFilter(res.getColor(R.color.phoneGreen,null));
+                    taskIcon.setColorFilter(ContextCompat.getColor(context,R.color.phoneGreen));
                     break;
                 case MEETING:
                     taskIcon.setImageResource(R.drawable.ic_meeting);
-                    taskIcon.setColorFilter(res.getColor(R.color.meetingPurple,null));
+                    taskIcon.setColorFilter(ContextCompat.getColor(context,R.color.meetingPurple));
                     break;
                 case OTHER:
                     taskIcon.setImageResource(R.drawable.ic_other);
-                    taskIcon.setColorFilter(res.getColor(R.color.otherGray,null));
+                    taskIcon.setColorFilter(ContextCompat.getColor(context,R.color.otherGray));
                     break;
                 default:
                     taskIcon.setImageResource(R.drawable.ic_todo);
-                    taskIcon.setColorFilter(res.getColor(R.color.todoOrange,null));
+                    taskIcon.setColorFilter(ContextCompat.getColor(context,R.color.todoOrange));
                     break;
             }
         }

@@ -4,18 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.Serializable;
-
 
 public class AddTask extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -65,14 +61,6 @@ public class AddTask extends AppCompatActivity implements AdapterView.OnItemSele
         if ((title.length()|type.length()|desc.length()|date.length()) == 0) {
             return;
         }
-
-
-       /* CharSequence text = "Hello toast! info: "+title+"|"+type+"|"+desc+"|"+date+".";
-        int duration = Toast.LENGTH_LONG;
-
-        Toast toast = Toast.makeText(this, text, duration);
-        toast.show(); */
-
         Intent taskIntent = new Intent();
         mTask = new Task(title,type, desc, date);
 
@@ -83,8 +71,6 @@ public class AddTask extends AppCompatActivity implements AdapterView.OnItemSele
         setResult(RESULT_OK,taskIntent);
         finish();
     }
-
-
         public void onItemSelected(AdapterView<?> adapterView, View view, int
         i, long l) {
             String spinnerLabel = adapterView.getItemAtPosition(i).toString();
@@ -94,6 +80,17 @@ public class AddTask extends AppCompatActivity implements AdapterView.OnItemSele
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
 
