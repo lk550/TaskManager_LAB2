@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+//class responsible for handling the swipe mechanic on items from the recycler view list
 public class RecItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     private RecyclerItemListener listener;

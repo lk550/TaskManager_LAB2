@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -17,22 +18,17 @@
             android:id="@+id/delete_icon"
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="right"
-            android:layout_marginRight="10dp"
+            android:layout_gravity="end"
             android:foregroundGravity="right"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            android:contentDescription="@string/trash_can_icon" />
 
         <TextView
             android:layout_width="347dp"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@id/delete_icon"
-            android:gravity="center|left"
+            android:gravity="start"
 
-            android:text="Delete"
+            android:text="@string/delete"
             android:textColor="#fff"
             android:textSize="24sp" />
 
@@ -42,39 +38,43 @@
         android:id="@+id/item_Foreground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/cardview_light_background">
+        android:background="@color/cardview_light_background"
+        tools:ignore="PrivateResource">
     <ImageView
         android:id="@+id/task_icon"
         android:layout_width="42dp"
         android:layout_height="match_parent"
         android:padding="6dp"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        app:srcCompat="@android:drawable/checkbox_on_background"
+        android:contentDescription="@string/task_icon" />
 
-    <TextView
-        android:id="@+id/task_title"
-        style="@style/TextAppearance.AppCompat.Medium"
-        android:layout_width="226dp"
-        android:layout_height="match_parent"
-        android:gravity="center|left"
-        android:paddingLeft="15dp"
-        android:text="Task Placeholder" />
+        <TextView
+            android:id="@+id/task_title"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="196dp"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:paddingLeft="15dp"
+            android:text="@string/task_placeholder"
+            android:paddingStart="15dp"
+            tools:ignore="RtlSymmetry" />
 
-    <TextView
-        android:id="@+id/task_date"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="31 / 12  1997"
-        android:textSize="14sp" />
+        <TextView
+            android:id="@+id/task_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/date_placeholder"
+            android:textSize="14sp" />
 
     <Button
         android:id="@+id/task_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Status"
-        android:textSize="10sp" />
+        android:text="@string/status_placeholder"
+        android:textSize="12sp" />
     </LinearLayout>
 
 

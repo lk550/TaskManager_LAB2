@@ -3,4 +3,13 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="mar_24">24dp</dimen>
+    <dimen name="mar_100">100dp</dimen>
+    <dimen name="mar_32">32dp</dimen>
+    <dimen name="mar_44">44dp</dimen>
+    <dimen name="desc_width">350dp</dimen>
+    <dimen name="desc_height">105dp</dimen>
+    <dimen name="icon_w">50dp</dimen>
+    <dimen name="icon_h">46dp</dimen>
+    <dimen name="mar_28">28dp</dimen>
 </resources>

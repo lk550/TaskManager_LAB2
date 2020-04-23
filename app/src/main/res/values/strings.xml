@@ -35,6 +35,23 @@
     <string name="type_meeting">Meeting</string>
     <string name="type_other">Other</string>
     <string name="title">Title:</string>
+    <string name="type_label">Type:</string>
+    <string name="title_hint">Enter a title for your task</string>
+    <string name="due_date_label">Due Date:</string>
+    <string name="description_label">Description:</string>
+    <string name="delete">Delete</string>
+    <string name="task_placeholder">Task Placeholder</string>
+    <string name="date_placeholder">31 / 12 1997</string>
+    <string name="status_placeholder">Status</string>
+    <string name="task_icon">task icon</string>
+    <string name="trash_can_icon">trash can icon</string>
+    <string name="due_date">Due Date:</string>
+    <string name="status_label">status</string>
+    <string name="type_placeholder">type</string>
+    <string name="desc_placeholder">desc</string>
+    <string name="type_label_det">Type:</string>
+    <string name="status_label_details">Status:</string>
+    <string name="description_label_det">Description:</string>
 
     <string-array name="types_array">
         <item>To-do</item>

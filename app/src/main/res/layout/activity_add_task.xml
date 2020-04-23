@@ -17,12 +17,12 @@
     <TextView
         android:id="@+id/type_label"
         style="@style/TextAppearance.AppCompat.Medium"
-        android:layout_width="53dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="100dp"
-        android:text="Type:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mar_24"
+        android:layout_marginLeft="@dimen/mar_24"
+        android:layout_marginTop="@dimen/mar_100"
+        android:text="@string/type_label"
         android:textColor="@color/materialBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,13 +46,14 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="@dimen/mar_24"
+        android:layout_marginLeft="@dimen/mar_24"
         android:ems="10"
-        android:hint="Enter a title for your task"
+        android:hint="@string/title_hint"
         android:inputType="textNoSuggestions"
         app:layout_constraintBaseline_toBaselineOf="@+id/name_label"
-        app:layout_constraintStart_toEndOf="@+id/name_label" />
+        app:layout_constraintStart_toEndOf="@+id/name_label"
+        android:autofillHints="" />
 
     <!-- Title label -->
     <EditText
@@ -66,7 +67,8 @@
         android:paddingBottom="@dimen/activity_horizontal_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/desc_label" />
+        app:layout_constraintTop_toBottomOf="@+id/desc_label"
+        android:autofillHints="" />
 
     <!-- EditText for getting task title -->
     <EditText
@@ -78,7 +80,9 @@
         android:ems="10"
         android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/date_label"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
 
     <!-- Description label -->
 
@@ -125,7 +129,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="44dp"
-        android:text="Due Date:"
+        android:text="@string/due_date_label"
         android:textColor="@color/materialBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTaskDescription" />
@@ -138,7 +142,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="172dp"
-        android:text="Description:"
+        android:text="@string/description_label"
         android:textColor="@color/materialBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

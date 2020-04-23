@@ -1,7 +1,7 @@
 package pl.edu.lab2.i256991;
 
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +12,13 @@ import android.widget.TextView;
 import java.util.LinkedList;
 
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
 
+
+    public static final String EXTRA_TASKDET = "pl.edu.lab2.i256991.extra.TASKDET";
 
     //has the data
     private final LinkedList<Task> mTaskList;
@@ -33,13 +34,11 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
 
     public TaskListAdapter.TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflate an item view.
         View mItemView = mInflater.inflate(R.layout.task_item, parent, false);
         return new TaskViewHolder(mItemView, this);
     }
 
     public void onBindViewHolder(TaskListAdapter.TaskViewHolder holder, int position) {
-        // Retrieve the data for that position.
          Task task = mTaskList.get(position);
          holder.setTitle(task.getTitle());
          holder.setIcon(task.getType());
@@ -117,26 +116,18 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
         @Override
         public void onClick(View view) {
-            // Get the position of the item that was clicked.
-            int mPosition = getLayoutPosition();
 
-            // Use that to access the affected item in mTaskList.
-            Task element = mTaskList.get(mPosition);
-            // Change the word in the mWordList.
-           /* mWordList.set(mPosition, "Clicked! " + element);
-            // Notify the adapter, that the data has changed so it can
-            // update the RecyclerView to display the data.*/
-            mAdapter.notifyDataSetChanged();
+            int mPosition = getLayoutPosition();
+            Task task = mTaskList.get(mPosition);
+
+            Intent taskIntent = new Intent(view.getContext(), TaskDetails.class);
+            taskIntent.putExtra(EXTRA_TASKDET, task);
+
+            view.getContext().startActivity(taskIntent);
+
         }
     }
 
-
-    /**
-     * Returns the total number of items in the data set held by the adapter.
-     *
-     * @return The total number of items in this adapter.
-     */
-    @Override
     public int getItemCount() {
         return mTaskList == null? 0: mTaskList.size();
     }
