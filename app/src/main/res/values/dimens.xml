@@ -12,4 +12,11 @@
     <dimen name="icon_w">50dp</dimen>
     <dimen name="icon_h">46dp</dimen>
     <dimen name="mar_28">28dp</dimen>
+    <dimen name="mar_84">84dp</dimen>
+    <dimen name="description_width">372dp</dimen>
+    <dimen name="mar_9">9dp</dimen>
+    <dimen name="mar_20">20dp</dimen>
+    <dimen name="mar_172">172dp</dimen>
+    <dimen name="type_spinner_width">185dp</dimen>
+    <dimen name="type_spinner_height">39dp</dimen>
 </resources>
