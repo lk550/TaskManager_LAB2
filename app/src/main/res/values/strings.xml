@@ -13,7 +13,7 @@
     <string name="main_activity_name">All Tasks</string>
     <string name="add_task_activity_name">Add a New Task</string>
 
-
+    <string name="edit_task_description">Describe your task&#8230;</string>
     <string name="add_button">Add</string>
     <string name="newTask_header">Add Task</string>
     <string name="type_todo">To-do</string>
